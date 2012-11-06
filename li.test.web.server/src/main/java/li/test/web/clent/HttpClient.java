@@ -47,12 +47,13 @@ public class HttpClient {
         } catch (IOException e) {
             logger.info("fail to get output stream from the socket");
         }
-        PrintWriter writer = new PrintWriter(outputStream, true);
+        PrintWriter writer = new PrintWriter(outputStream, false);
 
         // send http request to the http server
         writer.println("GET /index.jsp HTTP/1.1");
         writer.println("HOST: localhost:8080");
         writer.println("Connection: close");
+        writer.flush();
     }
 
     public boolean receiveResponse() {
