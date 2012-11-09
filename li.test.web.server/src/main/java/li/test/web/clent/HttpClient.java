@@ -113,10 +113,6 @@ public class HttpClient {
         OutputStream outputStream = null;
         socket = new Socket(InetAddress.getByName("127.0.0.1"), 8080);
         outputStream = socket.getOutputStream();
-        if (null == outputStream) {
-            logger.info("fail to get output stream from the socket");
-            return;
-        }
 
         PrintWriter writer = new PrintWriter(outputStream, true);
         BufferedReader in = new BufferedReader(new InputStreamReader(
